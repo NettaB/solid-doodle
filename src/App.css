@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+.app {
+  display: grid;
+  grid-template-rows: 20% 70%;
+  color: #222222;
+  background-color: #f7f7f7;
+  height: 100vh;
+}
+.app header {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app main.sentiments {
+  display: flex;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app .like-display {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 36px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+.app .like-display .counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.app .like-display.fb > h1 {
+  color: #1973dd;
+}
+
+.app .like-display.tw > h1 {
+  color: #209cea;
+}
+
+.app .like-display.in > h1 {
+  color: #c236a6;
+}
+
+.app .like-display h1 {
+  font-size: 2rem;
+}
+
+.app .like-display .delta {
+  color: black;
+  animation: ticker 2s;
+}
+
+.app .like-display .bar-chart {
+  width: 80%;
+  height: 36px;
+  display: flex;
+}
+
+.app .like-display .bar-chart > * {
+  height: 36px;
+}
+
+.app .like-display .bar-chart div:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.app .like-display .bar-chart div:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.app .like-display .bar-chart .positive {
+  background-color: #24d394;
+  margin-right: 1%;
+}
+.app .like-display .bar-chart .negative {
+  background-color: #ff4b59;
+  margin-right: 1%;
+}
+.app .like-display .bar-chart .neutral {
+  background-color: #d8d8d8;
+}
+
+@keyframes ticker {
+  0% {
+    opacity: 1;
+    /*    transform: scale(0);*/
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 0.5;
+    /*    transform: scale(1);*/
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    /*    transform: scale(0);*/
   }
 }
